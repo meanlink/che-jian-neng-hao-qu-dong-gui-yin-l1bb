@@ -8,3 +8,13 @@ class JobStatus(str, Enum):
     running = 'running'
     completed = 'completed'
     failed = 'failed'
+class LedgerBatchStatus(str, Enum):
+    pending = 'pending'
+    posted = 'posted'
+    rejected = 'rejected'
+class LedgerEntryStatus(str, Enum):
+    pending = 'pending'
+    posted = 'posted'
+class LedgerEntryType(str, Enum):
+    original = 'original'
+    reversal = 'reversal'

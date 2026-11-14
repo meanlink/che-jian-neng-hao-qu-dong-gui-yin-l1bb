@@ -3,8 +3,8 @@
 特征选择与回归的真实业务分析小型项目。完整模拟客户、痛点、上下游、算法公式与一天工作剧本见 [BUSINESS.md](BUSINESS.md)。
 
 ## 模块与业务流程
-数据接入（JSON/CSV、字段验证、批次指纹）→ 参数化分析（异步 Python worker）→ 结果复核（指标、图形、明细、解释、批准）→ 定时分发（本地收件箱、CSV/JSON、SHA256）；另有业务总览和审计轨迹。
-三个贯穿全栈的实体：Dataset 数据批次、Job 分析任务、Report 分发计划；辅助 User、Audit、Delivery。
+数据接入（JSON/CSV、字段验证、批次指纹）→ 参数化分析（异步 Python worker）→ 结果复核（指标、图形、明细、解释、批准）→ 节能考核账本（冻结批准口径、按日预计/实测/差额、月度封账与冲正）→ 定时分发（本地收件箱、CSV/JSON、SHA256）；另有业务总览和审计轨迹。
+四个贯穿全栈的实体：Dataset 数据批次、Job 分析任务、Ledger 考核账本、Report 分发计划；辅助 User、Audit、Delivery。
 
 ## 快速启动
 ```bash
@@ -18,8 +18,8 @@ docker compose exec -T backend python -m scripts.seed_demo
 ## 演示账号与权限
 |账号|密码|真实权限|
 |---|---|---|
-|admin@demo.local|Demo123!|接入、执行、批准、分发、暂停、读取与下载|
-|analyst@demo.local|Demo123!|接入、执行、读取与下载；不能批准或安排分发|
+|admin@demo.local|Demo123!|接入、执行、批准、开户与封账、分发、暂停、读取与下载|
+|analyst@demo.local|Demo123!|接入、执行、入账与冲正、读取与下载；不能批准、开户、封账或安排分发|
 |viewer@demo.local|Demo123!|只读与下载|
 
 ## 技术与本地开发
